@@ -2,7 +2,7 @@
 
 // import { Component, AfterViewInit, ElementRef } from 'angular2/core';
 import { Component } from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Redirect } from 'angular2/router';
+import { RouteConfig, Redirect, ROUTER_DIRECTIVES, ROUTER_PROVIDERS  } from 'angular2/router';
 
 import { PABC2017Component } from './2017/PABC2017.component';
 

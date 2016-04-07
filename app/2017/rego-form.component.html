@@ -1,0 +1,106 @@
+<div class="card left-align">
+    <div class="card-content">
+        <span class="card-title">Penang Annual Bible Camp 2017 Registration Form</span>
+        
+        <div class="divider"></div>
+        
+        <section class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="name" type="text" class="validate">
+                        <label for="name">Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="address" class="materialize-textarea validate"></textarea>
+                        <label for="address">Address</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="ic_number" type="text" class="validate">
+                        <label for="ic_number">New IC Number (XXXXXX-XX-XXXX)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        Gender
+                        <p>
+                            <input class="with-gap" name="gender" type="radio" id="gender-male" />
+                            <label for="gender-male">Male</label>
+                        </p>
+                        <p>
+                            <input class="with-gap" name="gender" type="radio" id="gender-female" />
+                            <label for="gender-female">Female</label>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        Skills
+                        <p>
+                            <input type="checkbox" id="leadership" />
+                            <label for="leadership">Ministry Leadership</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="music" />
+                            <label for="music">Music</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="first_aid" />
+                            <label for="first_aid">First Aid</label>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        T-shirt size
+                        <p *ngFor="#shirtSize of shirtSizes">
+                            <input class="with-gap" name="shirt-size" type="radio" id="{{ shirtSize }}" />
+                            <label [attr.for]="shirtSize">{{ shirtSize }}</label>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="row">
+                    <ol>
+                        <li *ngFor="#question of questions; #i = index">
+                            <p>{{ question }}</p>
+                            <p>
+                                <input class="with-gap" name="{{ i }}-input" type="radio" id="{{ i }}-input-yes" />
+                                <label attr.for="i + '-input-yes'">Yes</label>
+                            </p>
+                            <p>
+                                <input class="with-gap" name="{{ i }}-input" type="radio" id="{{ i }}-input-no" />
+                                <label attr.for="i + '-input-no'">No</label>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                If your answer to question 3 is "Yes", what is your involvement and role in that
+                                ministry/Christian organization?
+                            </p>
+                            <p>
+                                <input placeholder="Involvement and role" type="text">
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+                
+            </form>
+        </section>
+    </div>
+    <div class="card-action right-align">
+        <a class="waves-effect btn green">Submit</a>
+    </div>
+</div>
