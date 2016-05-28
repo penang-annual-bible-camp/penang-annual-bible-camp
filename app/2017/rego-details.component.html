@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="input-field col s12">
+        <input required id="name" type="text" class="validate" [(ngModel)]="detailsModel.name">
+        <label for="name">Name</label>
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s12">
+        <textarea required id="address" class="materialize-textarea validate" [(ngModel)]="detailsModel.address"></textarea>
+        <label for="address">Address</label>
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s12">
+        <input required id="ic_number" type="text" class="validate" [(ngModel)]="detailsModel.ic_number">
+        <label for="ic_number">New IC Number (XXXXXX-XX-XXXX)</label>
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s12">
+        <input required id="email" type="email" class="validate" [(ngModel)]="detailsModel.email">
+        <label for="email">Email</label>
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s12">
+        <input required id="phone" type="text" class="validate" [(ngModel)]="detailsModel.phone">
+        <label for="phone">Phone number</label>
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s12">
+        <input required id="church" type="text" class="validate" [(ngModel)]="detailsModel.church">
+        <label for="church">Church</label>
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s12">
+        Gender
+        <p>
+            <input required class="with-gap" name="gender" type="radio" id="gender-male" (click)="detailsModel.gender = 'Male'" />
+            <label for="gender-male">Male</label>
+        </p>
+        <p>
+            <input required class="with-gap" name="gender" type="radio" id="gender-female"  (click)="detailsModel.gender = 'Female'" />
+            <label for="gender-female">Female</label>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s12">
+        Skills
+        <p>
+            <input #leadership required name="skills" type="checkbox" id="leadership" (change)="toggleSkills('leadership', leadership.checked)" />
+            <label for="leadership">Ministry Leadership</label>
+        </p>
+        <p>
+            <input #music required name="skills" type="checkbox" id="music" (change)="toggleSkills('music', music.checked)" />
+            <label for="music">Music</label>
+        </p>
+        <p>
+            <input #first_aid required name="skills" type="checkbox" id="first_aid" (change)="toggleSkills('first_aid', first_aid.checked)" />
+            <label for="first_aid">First Aid</label>
+        </p>
+    </div>
+</div>
+<div class="row" *ngIf="music.checked">
+    <div class="input-field col s12">
+        <input id="instruments" type="text" class="validate" [(ngModel)]="detailsModel.instruments">
+        <label for="instruments">Instruments (separate by comma ',')</label>
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s12">
+        T-shirt size
+        <p *ngFor="let shirtSize of shirtSizes">
+            <input required class="with-gap" name="shirt-size" type="radio" id="{{ shirtSize }}" (click)="detailsModel.shirt_size = shirtSize" />
+            <label [attr.for]="shirtSize">{{ shirtSize }}</label>
+        </p>
+    </div>
+</div>

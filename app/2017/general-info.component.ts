@@ -1,11 +1,31 @@
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 import { CCCMap } from './ccc-map.component';
 import { RegoForm } from './rego-form.component';
 
 @Component({
     selector: 'general-info',
-    templateUrl: 'app/2017/general-info.component.html',
-    directives: [CCCMap, RegoForm]
+    directives: [CCCMap, RegoForm],
+    styles: [`
+    .top_level_div{
+        padding: 80px 0;
+        min-height: 480px;
+    }
+    `],
+    template: `
+    <div class="top_level_div">
+        <div class="container">
+            <div class="row center-align" *ngFor="let section of sections">
+                <div class="col s12">
+                    <i class="large material-icons">{{ section.icon }}</i>
+                    <h4>{{ section.header }}</h4>
+                    <p>{{ section.description }}</p>
+                    <ccc-map *ngIf="section.extra == 'map'"></ccc-map>
+                    <rego-form *ngIf="section.extra == 'form'"></rego-form>
+                </div>
+            </div>
+        </div>
+    </div>
+    `
 })
 
 export class GeneralInfo {
@@ -15,7 +35,7 @@ export class GeneralInfo {
             'description': `
                 Located in the heart of Batu Feringghi, the Christian Convention Centre (CCC) has been the venue
                 for the Penang Annual Bible Camp for many years. The site has 6 dormitories and 2 rooms which cater
-                to the needs of the camp attendees.
+                to the needs of the camp attendees. To scroll on the map below, click once to enable interaction.
             `,
             'icon': 'pin_drop',
             'extra': 'map'

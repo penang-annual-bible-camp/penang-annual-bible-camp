@@ -1,8 +1,8 @@
-/// <reference path="../typings/main.d.ts" />
+/// <reference path="../typings/index.d.ts" />
 
 // import { Component, AfterViewInit, ElementRef } from 'angular2/core';
-import { Component } from 'angular2/core';
-import { RouteConfig, Redirect, ROUTER_DIRECTIVES, ROUTER_PROVIDERS  } from 'angular2/router';
+import { Component } from '@angular/core';
+import { RouteConfig, Redirect, ROUTER_DIRECTIVES, ROUTER_PROVIDERS  } from '@angular/router-deprecated';
 
 import { PABC2017Component } from './2017/PABC2017.component';
 
@@ -10,7 +10,9 @@ import { PABC2017Component } from './2017/PABC2017.component';
 
 @Component({
     selector: 'app-root',
-    templateUrl: 'app/app.component.html',
+    template: `
+    <router-outlet></router-outlet>
+    `,
     directives: [ROUTER_DIRECTIVES],
     providers: [
         ROUTER_PROVIDERS
